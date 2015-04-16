@@ -48,6 +48,11 @@ Cabal jest odpowiednikiem Ruby Bundlera, Python pip node.js npm, maven itd. GHC 
 
 ## Ubuntu
 
+[This PPA](http://launchpad.net/~hvr/+archive/ghc) is excellent and is what I
+use on all my Linux dev and build machines.
+
+Specifically:
+
 ```bash
 $ sudo apt-get update
 $ sudo apt-get install python-software-properties # v12.04 and below
@@ -57,13 +62,13 @@ $ sudo apt-get update
 $ sudo apt-get install cabal-install-1.20 ghc-7.8.4 happy-1.19.4 alex-3.1.3
 ```
 
-Nastepnie do zmiennej systemowej `$PATH` nastepujące scieżki (bash\_profile, zshrc, bashrc, etc):
+Nastepnie do zmiennej systemowej `$PATH` dodaj nastepujące scieżki (bash\_profile, zshrc, bashrc, etc):
 
 ```
 ~/.cabal/bin:/opt/cabal/1.20/bin:/opt/ghc/7.8.4/bin:/opt/happy/1.19.4/bin:/opt/alex/3.1.3/bin
 ```
 
-*Opcjonalnie* Dodatkowo możesz takze dodać `.cabal-sandbox/bin` do twojej scieżki. Kod który akurat piszesz bedzie dostepny z poziomu okna poleceń.
+*Opcjonalnie* Dodatkowo możesz takze dodać `.cabal-sandbox/bin` do twojej scieżki. Kod który akurat piszesz bedzie dostepny z poziomu okna poleceń. Zadziała Ci to jedynie jeśli aktualnie pracujesz w folderze który jest podpięty jako cabal sandbox. 
 
 ## Debian
 
@@ -84,18 +89,18 @@ Możesz użyć tego [poradnika](http://www.davesquared.net/2014/05/platformless-
 Uwagi:
 
 - Ustaw swój prefix zgodnie z konfiguracją ghc.
-- Zamiast `cabal-install` pliku binarnego weź źródła a następnie uruchom `bootstrap.sh` skrypt
+- Zamiast `cabal-install` pliku binarnego, weź źródła a następnie uruchom skrypt `bootstrap.sh`
 
 ## Fedora 21
 
-Aby zainstalować Haskell 7.8.4, musisz pobrać repozytorium z nieoficjalnego źródła (Fedobra 22+ już posiada haskell z oficnajlnego repozytorium).
+Aby zainstalować Haskell 7.8.4, musisz pobrać repozytorium z nieoficjalnego źródła (Fedobra 22+ już posiada haskell na oficjalnym repozytorium).
 
 ```bash
 $ sudo yum-config-manager --add-repo \
 > https://copr.fedoraproject.org/coprs/petersen/ghc-7.8.4/repo/fedora-21/petersen-ghc-7.8.4-fedora-21.repo  
 $ sudo yum install ghc cabal-install
 ```
-Trzeba zaznaczyć że [petersen/ghc-7.8.4 copr page](https://copr.fedoraproject.org/coprs/petersen/ghc-7.8.4/) ten kompilator nie może być zainstalowany wraz z Fedora/EPEL ghc
+Trzeba zaznaczyć że [petersen/ghc-7.8.4 copr page](https://copr.fedoraproject.org/coprs/petersen/ghc-7.8.4/) ten kompilator (ghc) nie może być zainstalowany wraz z Fedora/EPEL ghc
 
 ## Arch Linux
 
@@ -106,17 +111,46 @@ $ sudo pacman -S cabal-install ghc happy alex haddock
 ```
 
 ## Gentoo
-W przypatku Gentoo, możesz zainstalować indywidualny komponent Haskell Platform poprzez Portage. Jesli uzyjesz `ACCEPT_KEYWORDS=arch` (jako przeciwstawieństwo do `ACCEPT_KEYWORDS=~arch`). Porgate zainstaluje ci jakieś stare wersje różnych rzeczy do Haskella. Mając to na uwadze, orzy okazji używania `ACCEPT_KEYWORDS=arch`, dodaj następujące wyrażenbie do `/etc/portage/package.keywords`.
-
-	dev-haskell/cabal-install
+W przypatku Gentoo, możesz zainstalować indywidualny komponent Haskell Platform poprzez Portage. Jeśli użyjesz `ACCEPT_KEYWORDS=arch` (jako przeciwstawieństwo do `ACCEPT_KEYWORDS=~arch`). Porgate zainstaluje ci jakieś stare wersje różnych rzeczy do Haskella. Mając to na uwadze, przy okazji używania `ACCEPT_KEYWORDS=arch`, dodaj następujące wyrażenie do `/etc/portage/package.keywords`.
+    
+    dev-haskell/cabal-install
     dev-lang/ghc
 
-następnie,
+jak już wszystko zrobisz możesz przejść do następnego kroku,
 
 ```bash
 $ emerge -jav dev-lang/ghc dev-haskell/cabal-install
 ```
-Gentoo cdn....
+
+Gentoo trzyma "stabilne" (stare) wersje `cabal-install` w drzewnie Portage, będziesz musiał użyć `cabal-install` aby zainstalować ostatnie wersje cabala. Miej na uwadze ze w następującym przykładzie backslashes są umyślnie wprowadzone.
+
+```bash
+$ \cabal update                # The backslashes
+$ \cabal install cabal-install # are intentional
+```
+
+Masz już zainstalowanego cabala z partage, oraz lokalnie na twoim domowym folderze (?). Następnie musisz upewnić się że jak uruchomisz `cabal` w terminalu, to twoja powłoka uruchomi najświeższą wersje. Zapewnie bęziesz musiał uruchomić jeszcze jedną komendę aby skonfigurować sobie powłoke:
+
+```bash
+PATH=$PATH:$HOME/.cabal/bin
+alias cabal="$HOME/.cabal/bin/cabal"
+```
+
+Jeśli nie wiesz jaką powłoke posiadasz, prawdopodnie jest to Bash. Jeśli używasz Basha, plik który musisz edytować znajduje się `~/.bashrc`. Jeśli używasz Z-shell, wtedy twój plik konfiguracyjny znajduje się `~/.zshrc`. Możesz uruchomić następującą komende aby dowiedzieć się jaką masz powłoke
+
+```bash
+echo $SHELL | xargs basename
+```
+
+Ja używam zsh, więc ta komenda wyświetla mi `zsh` kiedy ją uruchomie.
+
+Jak już ukończysz te wszystkie kroki, musisz zainstalowaćdodatkowe narzędzia `alex` oraz `happy`.
+
+```bash
+$ cabal install alex happy
+```
+
+Gratulacje! Masz w pełni działające środowisko które umożliwi Ci pracowanie z Haskellem
 
 ## Mac OS X
 
