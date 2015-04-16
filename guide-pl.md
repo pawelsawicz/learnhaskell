@@ -1,42 +1,48 @@
 # Poradnik
 
-To jest moja zalecana scieżka nauki Haseklla
+To jest moja zalecana droga nauki Haseklla.
 
 *Uwaga : Ten poradnik jest przetłumaczony na język Polski, jednak wszystkie pozostałe załączniki są w języku Angielskim*
 
-#### Pamiętaj, nie zadręczaj się jak czegoś od razu nie rozumiesz i nie poddawaj się! Staraj się iść na przód z materiałem, zawsze mozesz wrócić poźniej do niezrozumiałej cześci.
+#### Pamiętaj, nie musisz wszystkego od razu zrozumieć, ważne jest abyś kontynuował swoją naukę, zawsze możesz wrócić do niezrozumiałej części.
 
 ##Społeczność
 
-Nasz kanał IRC nazywa się `#haskell-beginners`, jesteśmy na serwerze Freenode.
+Nasz kanał IRC nazywa się `#haskell-beginners`, znajduje się na serwerze Freenode.
 
 Klient webowy [IRC](http://webchat.freenode.net/).
 
-Nasza [Lista dyskusyjna](https://wiki.haskell.org/Mailing_lists).
+Nasza [lista dyskusyjna](https://wiki.haskell.org/Mailing_lists).
 
 ## Netykieta
 
-Bądź miły i uprzejmy. Będąc złosliwym lub niegrzecznym na pewno odstraszysz ludzi, i mogą przez to zrezygnować z dalszej nauki.
+Bądź miły i uprzejmy. Będąc złosliwym lub niegrzecznym tylko odstraszysz ludzi, i mogą przez to zrezygnować z dalszej nauki.
 
-Nie opisuj czegoś że jest "łatwe" albo "trywialne". Przez to ludze mogą się poczuć źle lub urażeni. Często ludzie którzy uczą się wolniej są bardziej dokładni (?), jest się z czego cieszyć!
+Nie opisuj czegoś że jest "łatwe" albo "trywialne". Przez to ludze mogą się poczuć się urażeni. Często ludzie którzy uczą się wolniej są bardziej dokładni (?), jest się z czego cieszyć!
 
-Nie bądź zdziwony jak ktoś czegoś nie potrafi. Ludzie mogą poczuć się urażeni a ty tylko podbudujesz swoje ego.
+Nie bądź zdziwony jak ktoś czegoś nie potrafi lub nie rozumie. Ludzie mogą poczuć się urażeni a ty tylko podbudujesz swoje ego.
 
 Nie bądź człowiekiem 
 
+Żadnych zachowań kończończych się na -sizm i tym podobnych. Rasizm, Seksizm, Homofobia oraz inne zachowania nie będą tolerowane!
+
+---
+
+Guidelines by [the Hacker School manual](https://www.hackerschool.com/manual). Thanks for releasing it Hacker School.
+
 # Co to Haskell, GHC oraz Cabal ?
 
-Haskell jest to język programowania jak został opisany w tym [raporcie](http://www.haskell.org/onlinereport/haskell2010/). 
+Haskell jest to język programowania, standard języka został opisany w tym [raporcie](http://www.haskell.org/onlinereport/haskell2010/). Najbardziej aktualny jest z 2010 roku.
 
 ## GHC
 
-[GHC](http://www.haskell.org/ghc/) jest to najpopularniesza metoda pracy z Haskellem. GHC zawiera kompilator, REPL, menadżer pakietów ?
+[GHC](http://www.haskell.org/ghc/) jest to najpopularniesza metoda pracy z Haskellem. GHC zawiera kompilator, REPL oraz menadżer bibliotek.
 
 ## Cabal
 
-[Cabal](https://www.haskell.org/cabal/download.html) zajmuje się zarządaniem projektem oraz zarząda zależnościami. Dzięki temu programowi mozesz zainstalować inne projekty, zazwyczaj w trybie "piaskownicy"
+[Cabal](https://www.haskell.org/cabal/download.html) zajmuje się zarządaniem projektem oraz zarządza zależnościami. Dzięki temu programowi mozesz instalować projekty, zazwyczaj w trybie "piaskownicy"
 
-Cabal jest odpowiednikiem Ruby Bundlera, Python pip node.js npm, maven itd. GHC zarząda pakietami samoistnie. Cabal wybiera wersje ktora ma zostać zainstalowana.
+Cabal jest odpowiednikiem Ruby Bundlera, Python pip node.js npm, maven itd. GHC zarząda pakietami samoistnie. Cabal tylko wybiera wersje ktora ma zostać zainstalowana.
 
 # Instalacja
 
