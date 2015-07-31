@@ -156,7 +156,7 @@ Gratulacje! Masz w pełni działające środowisko które umożliwi Ci pracowani
 
 ### 10.9
 
-Zainstaluj [Kompilator GHC dla Mac OS X](http://ghcformacosx.github.io/), zawiera ona GHC oraz Cabal. Dodatkowo zawiera to instrukcje jak dodac GHC i Cabal do scieżki, zaraz po tym jak gdzieś zainstalujesz `.app`
+Zainstaluj [GHC dla Mac OS X](http://ghcformacosx.github.io/) aplikacja która, posiada GHC oraz Cabal. Dodatkowo zawiera instrukcje jak dodac GHC i Cabal do scieżki, zaraz po tym jak zainstalujesz `.app`
 
 ### 10.6-10.8
 
@@ -164,15 +164,19 @@ Aby zainstalować narzędzia prosto z pliku binarnego, użyj tej [dystrybucji](h
 
 ## Windows
 
+- [windows minimal GHC installer](http://neilmitchell.blogspot.com/2014/12/beta-testing-windows-minimal-ghc.html) jest w stanie skompilować. Ogolnie to narzędzie jest jeszcze w becie ale powinno działać dla każdego czytającego ten prodanik.
+
+Nie zapomnij uruchomić instalatora w trybie administratora!
+
 ## Inne dystrybucje Linuxa
 
-Sciągnij oraz zainstaluj najnowsze pliki binarne :
+Sciągnij oraz zainstaluj najnowsze dystrybucje cabala oraz ghc :
 
 - [GHC](http://www.haskell.org/ghc/).
 
 - [Cabal](https://www.haskell.org/cabal/download.html).
 
-# Podstawowe kursy (poradniki??)
+# Podstawowe kursy
 
 ## Yorgey's cis194 course
 
